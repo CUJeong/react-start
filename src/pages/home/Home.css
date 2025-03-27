@@ -1,0 +1,50 @@
+.today {
+    width: 60%;
+    margin: auto;
+    padding-top: 60px;
+}
+
+.today-title {
+    text-align: center;
+    color: hotpink;
+}
+
+.today-input-box {
+    margin-top: 40px;
+    display: flex;
+}
+
+.today-input-box > button {
+    width: 80px;
+    height: 48px;
+    background-color: hotpink;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.today-input-box > input {
+    flex-grow: 1;
+    border: 2px solid hotpink;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.today-list-box {
+    margin-top: 40px;
+}
+
+.today-list {
+    display: flex;
+    padding: 12px;
+}
+
+.today-list > div:nth-child(1) {
+    width: 20%;
+}
+
+.today-list > div:nth-child(2) {
+    flex-grow: 1;
+}

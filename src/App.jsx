@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import Home from "./pages/home/Home";
+import Post from "./pages/post/Post";
+import Lotto from "./pages/lotto/Lotto";
+import logo from "./assets/logo.png"; // assets 폴더 내 이미지 파일 가져오기
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <BrowserRouter>
+            <div className="container">
+                {/* JSX 내부 주석 */}
+                {/* JSX 내부에는 최외곽을 감싸는 하나의 태그가 존재하는 상태여야함 */}
+                {/* App.css 에 지정한 클래스 적용시 className 속성에 부여 */}
+                {/* 네비게이션 만들기 */}
+                <div className="navigation">
+                    {/* 캔바 로고 에서 로고 제작 후 public 에 넣음 */}
+                    {/* src= 에 "" 없음 (html과 유사할뿐 같다고 보면 안됨)  */}
+                    {/* 로고 이미지 클릭시에는 홈으로 이동 */}
+                    <Link to="/">
+                        <img className="logo" src={logo} alt="" />
+                    </Link>
+                    <div className="menu-box">
+                        {/* SPA에서 페이지 전환시 a태그가 아닌 Link 태그 이용 */}
+                        <Link to="/post">감성포스트</Link>
+                        <Link to="/lotto">감성로또</Link>
+                    </div>
+                </div>
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more!!
-      </p>
-    </>
-  )
+                {/* 라우팅 영역 */}
+                <Routes>
+                    {/* 오늘의 한줄감성 남기기 (홈화면) */}
+                    <Route path="/" element={<Home />} />
+                    {/* 감성로또 */}
+                    <Route path="/lotto" element={<Lotto />} />
+                    {/* 감성포스트 */}
+                    <Route path="/post" element={<Post />} />
+                </Routes>
+            </div>
+        </BrowserRouter>
+    );
 }
 
-export default App
+// 다른 파일에서 App.jsx 를 불러다 사용하는 경우 function App()을 기준으로 사용
+export default App;
