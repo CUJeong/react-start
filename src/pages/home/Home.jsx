@@ -35,6 +35,13 @@ function Home() {
         console.log(inputText["current"]);
         console.log(inputText["current"].value);
 
+        // 입력한 값이 없다면 Modal 띄우기 (과제)
+        if (!inputText.current.value) {
+            setModalContent("한줄감성을 작성해주세요.");
+            setModalShow(true);
+            return;
+        }
+
         // JSON 객체 생성
         let json = {};
         json["date"] = makeDate();
@@ -46,11 +53,15 @@ function Home() {
 
         // setDataArray에는 메모리 주소값이 다른 새로운 배열 객체가 들어가야 자동으로 리랜더링됨
         setDataArray(newArray);
+        setModalContent("등록되었습니다.");
+        inputText.current.value = "";
         setModalShow(true);
     };
 
     // Lotto 에서 Modal 추가 후 Home 에도 Modal 추가하기(과제)
     const [isModalShow, setModalShow] = useState(false);
+
+    let [modalContent, setModalContent] = useState("등록되었습니다.");
 
     return (
         <div className="today">
@@ -90,7 +101,7 @@ function Home() {
 
             {isModalShow ? (
                 <Modal
-                    content={"등록되었습니다."}
+                    content={modalContent}
                     onClose={() => {
                         setModalShow(false);
                     }} // setModalShow 를 false로 바꾸는 익명함수를 넘겨줌

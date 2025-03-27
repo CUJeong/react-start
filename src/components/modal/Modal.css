@@ -4,8 +4,8 @@
     background-color: white;
     position: fixed;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: 20%;
+    transform: translate(-50%, 0);
     border-radius: 12px;
     box-shadow: 0 0 4px 2px #dcdcdc;
     display: flex;
