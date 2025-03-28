@@ -47,8 +47,10 @@ function Home() {
         json["date"] = makeDate();
         json["text"] = inputText.current.value;
 
-        // 배열 앞에 JSON 객체 추가하면서 새로운 배열 객체 리턴
-        let newArray = [json, ...dataArray];
+        // dataArray와 같은 값들을 가지는 새로운 배열 객체 리턴
+        let newArray = [...dataArray];
+        // 새로운 배열에 작성한 데이터 추가
+        newArray.push(json);
         console.log(newArray); // 데이터 추가 시 화면에 반영하려면 dataArray를 state 으로 관리
 
         // setDataArray에는 메모리 주소값이 다른 새로운 배열 객체가 들어가야 자동으로 리랜더링됨

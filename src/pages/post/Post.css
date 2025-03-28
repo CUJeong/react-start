@@ -1,0 +1,28 @@
+.post-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.post-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.post-list > thead {
+    background-color: #eeeeee;
+}
+
+.post-list td,
+.post-list th {
+    padding: 8px 16px;
+    text-align: center;
+}
+
+.post-list > tbody > tr > td:nth-child(2) {
+    text-align: start;
+}
+
+.post-list tr {
+    border-bottom: 1px solid #eeeeee;
+}
