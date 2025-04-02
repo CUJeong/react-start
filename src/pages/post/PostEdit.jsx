@@ -13,10 +13,6 @@ function PostEdit() {
     const params = useParams();
     const post = getPost(params.no);
 
-    window.onbeforeunload = () => {
-        return "";
-    };
-
     const writeDo = () => {
         const title = titleRef.current.value;
         const content = contentRef.current.value;
