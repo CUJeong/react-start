@@ -1,8 +1,30 @@
-*{
-  margin: 0;
-  padding: 0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-div{
-  box-sizing: border-box;
+div {
+    box-sizing: border-box;
+}
+
+.btn-empty {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: white;
+    border: 2px solid pink;
+    border-radius: 4px;
+    color: pink;
+    cursor: pointer;
+}
+
+.btn-full {
+    padding: 8px 16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-color: pink;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
 }

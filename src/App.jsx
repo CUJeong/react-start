@@ -1,13 +1,22 @@
 import "./App.css";
 import Home from "./pages/home/Home";
 import Post from "./pages/post/Post";
+import PostWrite from "./pages/post/PostWrite";
+import PostDetail from "./pages/post/PostDetail";
+import PostEdit from "./pages/post/PostEdit";
 import Lotto from "./pages/lotto/Lotto";
 import logo from "./assets/logo.png"; // assets 폴더 내 이미지 파일 가져오기
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+    BrowserRouter,
+    HashRouter,
+    Routes,
+    Route,
+    Link,
+} from "react-router-dom";
 
 function App() {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <div className="container">
                 {/* JSX 내부 주석 */}
                 {/* JSX 내부에는 최외곽을 감싸는 하나의 태그가 존재하는 상태여야함 */}
@@ -35,9 +44,15 @@ function App() {
                     <Route path="/lotto" element={<Lotto />} />
                     {/* 감성포스트 */}
                     <Route path="/post" element={<Post />} />
+                    {/* 포스트작성 */}
+                    <Route path="/postWrite" element={<PostWrite />} />
+                    {/* 포스트 상세. 상세 페이지 번호가 파라미터로 넘어오므로 path에 추가(path variable) */}
+                    <Route path="/postDetail/:no" element={<PostDetail />} />
+                    {/* 포스트 수정 */}
+                    <Route path="/postEdit/:no" element={<PostEdit />} />
                 </Routes>
             </div>
-        </BrowserRouter>
+        </HashRouter>
     );
 }
 
