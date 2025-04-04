@@ -1,18 +1,19 @@
 import "./PostWrite.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { currentDate } from "../common/common";
 
 function PostWrite() {
+    // Home.jsx 에서 했던 방식
     const titleRef = useRef();
 
-    const contentRef = useRef();
+    // 일반적인 방식
+    const [content, setContent] = useState('');
 
     const navigate = useNavigate();
 
     const writeDo = () => {
         const title = titleRef.current.value;
-        const content = contentRef.current.value;
 
         console.log(title);
         console.log(content);
@@ -40,7 +41,14 @@ function PostWrite() {
                 <input className="write-title" type="text" ref={titleRef} />
             </div>
             <div>
-                <textarea className="write-content" ref={contentRef}></textarea>
+                <textarea className="write-content" onChange={(e)=>{
+                    // 비추 방식
+                    // console.log(event.target.value);
+                    // 일반적인 방식
+                    console.log(e.target.value);
+                    // textarea에 타이핑할때마다 실행되며 그때마다 content 값을 업데이트함
+                    setContent(e.target.value);
+                }}></textarea>
             </div>
             <div className="write-btn-box">
                 {/* 공통적으로 쓰이는 버튼 스타일은 index.css에 기입한 후 그냥 사용하면 됨 */}

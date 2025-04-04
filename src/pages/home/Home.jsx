@@ -32,8 +32,9 @@ function Home() {
 
         // input 태그에 접근해서 value 값을 가져오기
         console.log(inputText);
-        console.log(inputText["current"]);
-        console.log(inputText["current"].value);
+        console.log(inputText.current);
+        console.log(inputText.current.value);
+        console.log(inputText["current"].value);  // 이제 []로 키값 접근하는 방식은 변수값 넣을때만 씁시다.
 
         // 입력한 값이 없다면 Modal 띄우기 (과제)
         if (!inputText.current.value) {
