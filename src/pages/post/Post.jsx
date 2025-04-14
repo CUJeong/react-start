@@ -25,7 +25,7 @@ function Post() {
     const [postData, setPostData] = useState([]);
     const [isAsc, setAsc] = useState(true);
 
-    // 내부 함수는 return에 의한 랜더링이 끝난 후 실행됨
+    // 내부 함수는 return에 의한 랜더링이 끝난 후 실행됨 (그냥 일반 자바스크립트의 window.onload의 장점을 가짐)
     useEffect(() => {
         console.log("useEffect 실행");
         const data = JSON.parse(localStorage.getItem("postData")) || [];
